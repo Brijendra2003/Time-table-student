@@ -55,6 +55,7 @@ export default function Lecturer({ refresh }) {
         });
     } else {
       // console.log(formdata);
+      localStorage.clear();
       localStorage.setItem("Lecturer", JSON.stringify(formdata));
       refresh();
       // console.log(localStorage.getItem("lecturer"));

@@ -95,6 +95,7 @@ export default function Student({ refresh }) {
 
   const submitForm = (event) => {
     event.preventDefault();
+    localStorage.clear();
     localStorage.setItem("Student", JSON.stringify(formdata));
     refresh();
     // console.log(localStorage.getItem("Student"));
