@@ -4,7 +4,7 @@
   bottom: 0px;
   height: 10vh;
   z-index: 1;
-  border-top: solid 1px;
+  /* border-top: solid 1px; */
   background-color: #e4efe7;
 }
 .links {

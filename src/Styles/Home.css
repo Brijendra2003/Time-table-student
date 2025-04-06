@@ -1,0 +1,62 @@
+.home-container {
+  height: 88vh;
+  border: solid 1px;
+  padding-bottom: 2vh;
+  overflow-y: scroll;
+}
+.homepage-img {
+  width: 90vw;
+  /* border: solid 1px; */
+  margin: auto;
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+.heading-home {
+  margin-top: 18vh;
+  text-align: center;
+}
+.home-card {
+  /* border: solid 1px; */
+  width: 90vw;
+  height: 11vh;
+  margin: auto;
+  margin-top: 2vh;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.home-card-right,
+.home-card-right-lecturer {
+  /* border: solid 1px; */
+  width: 68%;
+  height: 90%;
+}
+.home-card-left {
+  border-right: solid 1px;
+  width: 28%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-card-right * {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-card-right-lecturer * {
+  /* border: solid 1px; */
+  height: 33%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

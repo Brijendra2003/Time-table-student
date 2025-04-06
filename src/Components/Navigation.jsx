@@ -39,7 +39,7 @@ export default function Navigation({ home, dasbord, addequipment, profile }) {
               ></i>
             </div>
             Equipment
-          </Link>
+          </Link> */}
           <Link className="link" to="/Profile">
             <div className={profile ? "link-visited" : "not-visited"}>
               <i
@@ -51,7 +51,7 @@ export default function Navigation({ home, dasbord, addequipment, profile }) {
               ></i>
             </div>
             Profile
-          </Link> */}
+          </Link>
         </ul>
       </div>
     </>

@@ -16,6 +16,8 @@ body {
   border: 1px solid #dadce0;
   -webkit-border-radius: 8px;
   border-radius: 8px;
+  /* background-image: url("Time-table-student/public/signinlogo.jpg");
+  background-repeat: no-repeat; */
 }
 
 .box h2 {
