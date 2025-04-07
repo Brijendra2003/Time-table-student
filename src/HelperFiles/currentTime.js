@@ -1,18 +1,13 @@
 export default function currentTime(timeSlote) {
   const now = new Date();
-  const hours = now.getHours(); // 0–23
-  const minutes = now.getMinutes(); // 0–59
-  const seconds = now.getSeconds(); // 0–59
 
-  if (hours.length < 2) hours = `0:${hours}`;
-  if (minutes.length < 2) minutes = `0:${minutes}`;
+  let hours = now.getHours().toString().padStart(2, "0");
+  let minutes = now.getMinutes().toString().padStart(2, "0");
 
-  const current = `${hours + ":" + minutes}`;
-  // const current = "12:16";
+  const current = `${hours}:${minutes}`;
 
-  if (current >= timeSlote.start && current <= timeSlote.end) {
-    return true;
-  } else {
-    return false;
-  }
+  // console.log("Current Time:", current);
+  // console.log("Slot:", timeSlote.start, "-", timeSlote.end);
+
+  return current >= timeSlote.start && current <= timeSlote.end;
 }

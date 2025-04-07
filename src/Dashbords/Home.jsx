@@ -150,7 +150,7 @@ export default function Home() {
             <h1 className="heading-home">Its Holiday!</h1>
             <img
               className="homepage-img"
-              src="/Time-table-student/public/Holiday.png"
+              src="https://bakend.up.railway.app/assets/Holiday.png"
               alt=""
             />
           </>

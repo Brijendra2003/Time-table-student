@@ -15,22 +15,18 @@ export default function Breaks() {
   ];
 
   const now = new Date();
-  const hours = now.getHours(); // 0–23
-  const minutes = now.getMinutes(); // 0–59
-  //
-  if (hours.length < 2) hours = `0:${hours}`;
-  if (minutes.length < 2) minutes = `0:${minutes}`;
 
-  // const current = "00:41";
+  let hours = now.getHours().toString().padStart(2, "0");
+  let minutes = now.getMinutes().toString().padStart(2, "0");
 
-  const current = `${hours + ":" + minutes}`;
+  const current = `${hours}:${minutes}`;
 
   if (current >= breaks[0].start && current <= breaks[0].end) {
-    return "/Time-table-student/public/lunchtime.png";
+    return "https://bakend.up.railway.app/assets/lunchtime.png";
   } else if (current >= breaks[1].start && current <= breaks[1].end) {
-    return "/Time-table-student/public/lecturesOver.png";
+    return "https://bakend.up.railway.app/assets/lecturesOver.png";
   } else if (current >= breaks[2].start && current <= breaks[2].end) {
-    return "/Time-table-student/public/Tea_break.png";
+    return "https://bakend.up.railway.app/assets/Tea_break.png";
   } else {
     return false;
   }
