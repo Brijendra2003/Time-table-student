@@ -26,11 +26,11 @@ export default function Breaks() {
   const current = `${hours + ":" + minutes}`;
 
   if (current >= breaks[0].start && current <= breaks[0].end) {
-    return "/Time-table-student/public/lunchtime.png";
+    return "/public/lunchtime.png";
   } else if (current >= breaks[1].start && current <= breaks[1].end) {
-    return "/Time-table-student/public/lecturesOver.png";
+    return "/public/lecturesOver.png";
   } else if (current >= breaks[2].start && current <= breaks[2].end) {
-    return "/Time-table-student/public/Tea_break.png";
+    return "/public/Tea_break.png";
   } else {
     return false;
   }
