@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Loading from "./Components/loading";
 // import { StudentOptions } from "./Components/Options";
 
-export default function Student({ refresh }) {
+export default function Student({ profile, refresh }) {
   const [formdata, setFormData] = useState({});
   let [loading, setLoading] = useState(null);
   let [options, setOptions] = useState();
@@ -94,10 +94,10 @@ export default function Student({ refresh }) {
   };
 
   const submitForm = (event) => {
-    event.preventDefault();
+    if (!profile) event.preventDefault();
     localStorage.clear();
     localStorage.setItem("Student", JSON.stringify(formdata));
-    refresh();
+    if (!profile) refresh();
     // console.log(localStorage.getItem("Student"));
   };
 

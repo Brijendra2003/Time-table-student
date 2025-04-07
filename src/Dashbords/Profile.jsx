@@ -15,7 +15,7 @@ export default function Profile() {
   return (
     <>
       <Navigation profile={true} />
-      {isStudent ? <Student /> : <Lecturer />}
+      {isStudent ? <Student profile={true} /> : <Lecturer profile={true} />}
     </>
   );
 }

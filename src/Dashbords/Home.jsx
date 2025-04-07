@@ -3,10 +3,14 @@ import Navigation from "../Components/Navigation";
 import axiosInstance from "../HelperFiles/axiosInstance";
 import Loading from "../Components/loading";
 import HomeCard from "../Components/HomeCard";
+import currentTime from "../HelperFiles/currentTime";
+import Image from "../Components/image";
 import "../Styles/Home.css";
+import Breaks from "../HelperFiles/Breaks";
 export default function Home() {
   let [loading, setLoading] = useState(null);
   const [isLecturer, setIsLecturer] = useState(false);
+  const [image, setimage] = useState(false);
   const [boxData, setBoxData] = useState({});
   // let Monday, Tuesday, Wednesday, Thursday, Friday, Saturday;
   const studentData = localStorage.getItem("Student");
@@ -28,6 +32,7 @@ export default function Home() {
   const today = new Date();
   const dayName = days[today.getDay()];
   useEffect(() => {
+    if (Breaks()) setimage(<Image url={Breaks()} />);
     if (studentData) {
       setLoading(<Loading />);
       axiosInstance
@@ -74,6 +79,8 @@ export default function Home() {
           const thursday = datas.filter((data) => data.day == "Thursday");
           const friday = datas.filter((data) => data.day == "Friday");
           const saturday = datas.filter((data) => data.day == "Saturday");
+          // console.log(monday);
+
           setBoxData({
             Monday: monday,
             Tuesday: tuesday,
@@ -91,11 +98,43 @@ export default function Home() {
     } // Prevents unnecessary API call
   }, []);
 
+  const timeSlote = [
+    {
+      start: "09:30",
+      end: "10:25",
+    },
+    {
+      start: "10:26",
+      end: "11:20",
+    },
+    {
+      start: "11:21",
+      end: "12:15",
+    },
+    {
+      start: "13:00",
+      end: "13:55",
+    },
+    {
+      start: "13:56",
+      end: "14:50",
+    },
+    {
+      start: "14:51",
+      end: "15:45",
+    },
+    {
+      start: "15:46",
+      end: "16:40",
+    },
+  ];
+
   return (
     <>
       <Navigation home={true} />
       <div className="home-container">
         {loading}
+        {image}
         {dayName != "Sunday" ? (
           boxData[dayName] &&
           [...Array(7)].map((_, index) => (
@@ -103,6 +142,7 @@ export default function Home() {
               key={index}
               datas={boxData[dayName][index]}
               student={studentData}
+              current={currentTime(timeSlote[index])}
             />
           ))
         ) : (

@@ -5,7 +5,7 @@ import "./Styles/signin.css";
 import Loading from "./Components/loading";
 import { useState, useEffect } from "react";
 
-export default function Lecturer({ refresh }) {
+export default function Lecturer({ profile, refresh }) {
   const [formdata, setFormData] = useState({});
   let [loading, setLoading] = useState(null);
   const [notify, setNotify] = useState(null);
@@ -16,6 +16,17 @@ export default function Lecturer({ refresh }) {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    const studentData = localStorage.getItem("Student");
+    const lecturerData = localStorage.getItem("Lecturer");
+    const params = studentData
+      ? JSON.parse(studentData)
+      : JSON.parse(lecturerData);
+    if (params) {
+      setFormData(params);
+    }
+  }, []);
 
   const submitForm = async (event) => {
     event.preventDefault();
@@ -57,7 +68,7 @@ export default function Lecturer({ refresh }) {
       // console.log(formdata);
       localStorage.clear();
       localStorage.setItem("Lecturer", JSON.stringify(formdata));
-      refresh();
+      if (!profile) refresh();
       // console.log(localStorage.getItem("lecturer"));
     }
   };

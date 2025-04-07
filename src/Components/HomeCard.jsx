@@ -1,10 +1,10 @@
-export default function HomeCard({ datas, student }) {
+export default function HomeCard({ datas, student, current }) {
   // console.log("ecture", datas);
 
   return (
     <>
       {student ? (
-        <div className="home-card">
+        <div className={current ? "home-card home-card-current" : "home-card"}>
           {datas && (
             <>
               <div className="home-card-left">
@@ -22,7 +22,7 @@ export default function HomeCard({ datas, student }) {
           )}
         </div>
       ) : (
-        <div className="home-card">
+        <div className={current ? "home-card home-card-current" : "home-card"}>
           {datas && (
             <>
               <div className="home-card-left">
